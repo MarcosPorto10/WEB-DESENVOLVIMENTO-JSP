@@ -5,31 +5,53 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+        
     </head>
     <body>
         <h1>ARQUIVO JSP</h1>
+        
+       <%
+            out.print("<table>");
+            int n, i;
 
-        <%
-            out.print("<ul>");
-            int x, n = 2;
-               
-            for (n = 1; n <= 10; n++) {
-                
-                out.print("<li>");
-                out.print("TABUADA DO :" + n + "<br><br>");
+            out.print("");
+            for (n = 0; n <= 10; n++) {
 
-                
-                
-                for (x = 1; x <= 10; x++) {
-                   out.print("<li>");
-                    out.print(n + " x " + x + " = " + (x * n) + "<br>");
-                    // 2    x     1     =       2
+                out.print("<tr>");
+                for (i = 1; i <= 10; i++) {
 
+                    if (n == 0) {
+                        out.print("<th>Tabuada " + i + "</th>");
+                    } else {
+                        out.println("<td>" + i + " x " + n + " = " + (i * n) + "</td>");
+                    }
                 }
+                out.print("</tr>");
+
             }
+
+            out.print("</table>");
         %>
-
-
+        
+        
     </body>
 </html>
 //teste
